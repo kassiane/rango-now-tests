@@ -54,14 +54,14 @@ public class RangoNowLoginPageTest {
 	@Test
 	public void testWrongEmail(){
 		rangoNowLoginPageActions.sendKeysEmail("kassiane@gmail.coms");
-		rangoNowLoginPageActions.sendKeysPassword("kassi0804");
+		rangoNowLoginPageActions.sendKeysPassword("");
 		rangoNowLoginPageActions.clickOnSignIn();
 	}
 	
 	@Test
 	public void testLoginSuccess(){
 		rangoNowLoginPageActions.sendKeysEmail("kassiane@gmail.com");
-		rangoNowLoginPageActions.sendKeysPassword("kassi0804");
+		rangoNowLoginPageActions.sendKeysPassword("");
 		rangoNowLoginPageActions.clickOnSignIn();
 	}
 
