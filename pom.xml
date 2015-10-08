@@ -12,6 +12,7 @@
 
     	<org.seleniumhq.selenium.version>2.47.1</org.seleniumhq.selenium.version>
     	<junit.version>4.12</junit.version>
+    	<org.apache.maven.plugins.version>2.18.1</org.apache.maven.plugins.version>
     	
     </properties>
     
@@ -48,4 +49,13 @@
 			
 	</dependencies>
     
+    <reporting>
+	    <plugins>
+	      <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-surefire-report-plugin</artifactId>
+	        <version>${org.apache.maven.plugins.version}</version>
+	      </plugin>
+	    </plugins>
+  </reporting>
 </project>
