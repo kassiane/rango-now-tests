@@ -11,13 +11,13 @@ public class RangoNowLoginPage {
 	@FindBy(name = "email")
 	private WebElement emailInput;
 	
-	@FindBy (name = "password")
+	@FindBy (name = "raw_password")
 	private WebElement passwordInput;
 
-	@FindBy (className = "btn btn-lg btn-primary btn-block top-margin")
+	@FindBy (css = "button.btn:nth-child(4)")
 	private WebElement signInButton;
 	
-	@FindBy (className = "btn btn-lg btn-link btn-block")
+	@FindBy (css = "button.btn:nth-child(2)")
 	private WebElement createAccountButton;
 	
 	public RangoNowLoginPage(WebDriver driver){
