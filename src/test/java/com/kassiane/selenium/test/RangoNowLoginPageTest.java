@@ -46,29 +46,33 @@ public class RangoNowLoginPageTest {
 
 	@Test
 	public void testWrongPassword(){
-		rangoNowLoginPageActions.sendKeysEmail("test.rangonow@gmail.com");
-		rangoNowLoginPageActions.sendKeysPassword("blablabla");
-		rangoNowLoginPageActions.clickOnSignIn();
+		rangoNowLoginPageActions
+			.sendKeysEmail("test.rangonow@gmail.com")
+			.sendKeysPassword("blablabla")
+			.submit();
 	}
 	
 	@Test
 	public void testNotRegisteredEmail(){
-		rangoNowLoginPageActions.sendKeysEmail("test.rangonow@gmail.coms");
-		rangoNowLoginPageActions.sendKeysPassword("rangonow!");
-		rangoNowLoginPageActions.clickOnSignIn();
+		rangoNowLoginPageActions
+			.sendKeysEmail("test.rangonow@gmail.coms")
+			.sendKeysPassword("rangonow!")
+			.submit();
 	}
 	
 	@Test
 	public void testWrongEmailFormat(){
-		rangoNowLoginPageActions.sendKeysEmail("test");
-		rangoNowLoginPageActions.sendKeysPassword("rangonow!");
-		rangoNowLoginPageActions.clickOnSignIn();
+		rangoNowLoginPageActions
+			.sendKeysEmail("test")
+			.sendKeysPassword("rangonow!")
+			.submit();
 	}
 	
 	@Test
 	public void testLoginSuccess(){
-		rangoNowLoginPageActions.sendKeysEmail("test.rangonow@gmail.com");
-		rangoNowLoginPageActions.sendKeysPassword("rangonow!");
-		rangoNowLoginPageActions.clickOnSignIn();
+		rangoNowLoginPageActions
+			.sendKeysEmail("test.rangonow@gmail.com")
+			.sendKeysPassword("rangonow!")
+			.submit();
 	}
 }

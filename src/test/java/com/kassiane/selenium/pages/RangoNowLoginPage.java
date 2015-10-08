@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class RangoNowLoginPage {
-
+	
 	@FindBy(name = "email")
 	private WebElement emailInput;
 	

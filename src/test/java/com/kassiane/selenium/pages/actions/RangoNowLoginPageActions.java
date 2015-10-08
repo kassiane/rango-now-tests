@@ -11,20 +11,26 @@ public class RangoNowLoginPageActions {
 		this.rangoNowLoginPage = new RangoNowLoginPage(driver);
 	}
 	
-	public void sendKeysEmail(String email) {
+	public RangoNowLoginPageActions sendKeysEmail(String email) {
+		rangoNowLoginPage.getEmailInput().clear();
 		rangoNowLoginPage.getEmailInput().sendKeys(email);
+		return this;
 	}
 	
-	public void sendKeysPassword(String password) {
+	public RangoNowLoginPageActions sendKeysPassword(String password) {
+		rangoNowLoginPage.getPasswordInput().clear();
 		rangoNowLoginPage.getPasswordInput().sendKeys(password);
+		return this;
 	}
 	
-	public void clickOnSignIn() {
+	public RangoNowLoginPageActions submit() {
 		rangoNowLoginPage.getSignInButton().click();
+		return this;
 	}
 	
-	public void clickOnCreateAccount() {
+	public RangoNowLoginPageActions clickOnCreateAccount() {
 		rangoNowLoginPage.getCreateAccountButton().click();
+		return this;
 	}
 	
 }
