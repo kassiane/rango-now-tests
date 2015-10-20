@@ -2,7 +2,6 @@ package com.kassiane.selenium.test;
 
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -10,12 +9,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.kassiane.selenium.pages.actions.RangoNowLoginPageActions;
-import com.kassiane.selenium.pages.messages.RangoNowLoginPageMessages;
+import com.kassiane.selenium.pages.checkers.RangoNowLoginPageCheckers;
+
+import static com.kassiane.selenium.pages.messages.RangoNowLoginPageMessages.*;
 
 public class RangoNowLoginPageTest {
 
 	private static String rangoNowLoginPageURL = "http://dbserver.rangonow.com.br/#/login";
 	private static RangoNowLoginPageActions rangoNowLoginPageActions;
+	private static RangoNowLoginPageCheckers rangoNowLoginPageCheckers;
 	private static WebDriver driver;
 	
 	@BeforeClass
@@ -23,6 +25,7 @@ public class RangoNowLoginPageTest {
 		// Create a new instance of a driver
         driver = new FirefoxDriver();
         // obtain login page actions
+        rangoNowLoginPageCheckers = new RangoNowLoginPageCheckers();
         rangoNowLoginPageActions = new RangoNowLoginPageActions(driver);
 	}
 	
@@ -56,8 +59,8 @@ public class RangoNowLoginPageTest {
 			.sendKeysPassword("blablabla")
 			.submit();
 		
-		boolean messageDisplayed = driver.getPageSource().contains(RangoNowLoginPageMessages.INVALID_PASSWORD.toString());
-		Assert.assertTrue(messageDisplayed);
+		rangoNowLoginPageCheckers
+			.errorMessageDisplayed(driver, INVALID_PASSWORD);
 	}
 	
 	@Test
@@ -67,8 +70,8 @@ public class RangoNowLoginPageTest {
 			.sendKeysPassword("rangonow!")
 			.submit();
 		
-		boolean messageDisplayed = driver.getPageSource().contains(RangoNowLoginPageMessages.INVALID_EMAIL_ADDRESS.toString());
-		Assert.assertTrue(messageDisplayed);
+		rangoNowLoginPageCheckers
+			.errorMessageDisplayed(driver, INVALID_EMAIL_ADDRESS);
 	}
 	
 	@Test
@@ -78,8 +81,8 @@ public class RangoNowLoginPageTest {
 			.sendKeysPassword("rangonow!")
 			.submit();
 		
-		boolean messageDisplayed = driver.getPageSource().contains(RangoNowLoginPageMessages.INVALID_EMAIL_ADDRESS.toString());
-		Assert.assertTrue(messageDisplayed);
+		rangoNowLoginPageCheckers
+			.errorMessageDisplayed(driver, INVALID_EMAIL_ADDRESS);
 	}
 	
 	@Test
