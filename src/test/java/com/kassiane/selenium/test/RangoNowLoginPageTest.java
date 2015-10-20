@@ -2,6 +2,7 @@ package com.kassiane.selenium.test;
 
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -16,6 +17,7 @@ import static com.kassiane.selenium.pages.messages.RangoNowLoginPageMessages.*;
 public class RangoNowLoginPageTest {
 
 	private static String rangoNowLoginPageURL = "http://dbserver.rangonow.com.br/#/login";
+	private static String rangoNowAccountPageURL = "http://dbserver.rangonow.com.br/#/account";
 	private static RangoNowLoginPageActions rangoNowLoginPageActions;
 	private static RangoNowLoginPageCheckers rangoNowLoginPageCheckers;
 	private static WebDriver driver;
@@ -50,6 +52,8 @@ public class RangoNowLoginPageTest {
 	@Test
 	public void goToCreateAccount(){
 		rangoNowLoginPageActions.clickOnCreateAccount();
+		
+		assertTrue(driver.getCurrentUrl().matches(rangoNowAccountPageURL));
 	}
 
 	@Test
