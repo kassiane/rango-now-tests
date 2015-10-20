@@ -31,7 +31,10 @@ public class RangoNowLoginPageTest {
 	
 	@Before
 	public void getLoginPage(){
-		driver.get(rangoNowLoginPageURL);
+		if (driver.getCurrentUrl().matches(rangoNowLoginPageURL))
+			driver.navigate().refresh();
+		
+		driver.navigate().to(rangoNowLoginPageURL);
 	}
 	
 	@After
