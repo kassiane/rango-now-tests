@@ -2,6 +2,7 @@ package com.kassiane.selenium.test;
 
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -9,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.kassiane.selenium.pages.actions.RangoNowLoginPageActions;
+import com.kassiane.selenium.pages.messages.RangoNowLoginPageMessages;
 
 public class RangoNowLoginPageTest {
 
@@ -53,6 +55,9 @@ public class RangoNowLoginPageTest {
 			.sendKeysEmail("test.rangonow@gmail.com")
 			.sendKeysPassword("blablabla")
 			.submit();
+		
+		boolean messageDisplayed = driver.getPageSource().contains(RangoNowLoginPageMessages.INVALID_PASSWORD.toString());
+		Assert.assertTrue(messageDisplayed);
 	}
 	
 	@Test
@@ -61,6 +66,9 @@ public class RangoNowLoginPageTest {
 			.sendKeysEmail("test.rangonow@gmail.coms")
 			.sendKeysPassword("rangonow!")
 			.submit();
+		
+		boolean messageDisplayed = driver.getPageSource().contains(RangoNowLoginPageMessages.INVALID_EMAIL_ADDRESS.toString());
+		Assert.assertTrue(messageDisplayed);
 	}
 	
 	@Test
@@ -69,6 +77,9 @@ public class RangoNowLoginPageTest {
 			.sendKeysEmail("test")
 			.sendKeysPassword("rangonow!")
 			.submit();
+		
+		boolean messageDisplayed = driver.getPageSource().contains(RangoNowLoginPageMessages.INVALID_EMAIL_ADDRESS.toString());
+		Assert.assertTrue(messageDisplayed);
 	}
 	
 	@Test
