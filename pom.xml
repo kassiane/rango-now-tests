@@ -13,7 +13,7 @@
     	<org.seleniumhq.selenium.version>2.47.1</org.seleniumhq.selenium.version>
     	<junit.version>4.12</junit.version>
     	<org.apache.maven.plugins.version>2.18.1</org.apache.maven.plugins.version>
-    	
+		<cucumber.version>1.2.4</cucumber.version>
     </properties>
     
     <dependencyManagement>
@@ -31,6 +31,19 @@
         	        <version>${junit.version}</version>
 	                <scope>test</scope>
         	</dependency>
+        	
+        	<dependency>
+				<groupId>info.cukes</groupId>
+				<artifactId>cucumber-java</artifactId>
+				<version>${cucumber.version}</version>
+			</dependency>
+			
+			<dependency>
+		        <groupId>info.cukes</groupId>
+		        <artifactId>cucumber-junit</artifactId>
+		        <version>${cucumber.version}</version>
+		        <scope>test</scope>
+		    </dependency>
 			
 	</dependencies>
     </dependencyManagement>
@@ -46,6 +59,17 @@
 		    <artifactId>junit</artifactId>
 		    <scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+		</dependency>
+		
+		<dependency>
+	        <groupId>info.cukes</groupId>
+	        <artifactId>cucumber-junit</artifactId>
+	        <scope>test</scope>
+	    </dependency>
 			
 	</dependencies>
     
